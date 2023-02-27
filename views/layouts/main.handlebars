@@ -16,7 +16,8 @@
         The Tech Blog
       </h1>
       <nav>
-        <a href="/dashboard">Dashboard</a> |
+        <a href="/homepage">Home</a> 
+        <a href="/dashboard">Dashboard</a> 
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <button class="no-button" id="logout">logout</button>
@@ -27,7 +28,7 @@
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
-      {{{ body }}}
+      {{{body}}}
     </main>
   </div>
 
