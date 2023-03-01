@@ -20,7 +20,7 @@ router.get('/', withAuth, async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('createpost', { 
+    res.render('dashboard-detail', { 
       layout: "dashboard",
       posts, 
       logged_in: req.session.logged_in 
