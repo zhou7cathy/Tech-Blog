@@ -1,0 +1,9 @@
+{{#each posts}}
+  <h2>{{title}}</h2>
+  <p>Created by {{user.name}} on {{format_date create_date}}</p>
+  <p>{{contents}}</p>
+{{/each}}
+
+<button type="submit" value="Submit">
+  Create Post
+</button>
