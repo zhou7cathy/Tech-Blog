@@ -17,3 +17,9 @@ if (event.target.hasAttribute('data-id')) {
 document
 .querySelector('.post-list')
 .addEventListener('click', delButtonHandler);
+
+const createPostButtonHandler = async (event) => {document.location.replace('/create-post');};
+
+document
+.querySelector('.create-post')
+.addEventListener('click', createPostButtonHandler);

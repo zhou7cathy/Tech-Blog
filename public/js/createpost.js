@@ -1,29 +1,29 @@
-// const newFormHandler = async (event) => {
-//     event.preventDefault();
+const newFormHandler = async (event) => {
+    event.preventDefault();
   
-//     const name = document.querySelector('#post-title').value.trim();
-//     const content = document.querySelector('#post-content').value.trim();
+    const title = document.querySelector('#post-title').value.trim();
+    const contents = document.querySelector('#post-content').value.trim();
  
-//     if (name && content) {
-//       const response = await fetch(`/api/post`, {
-//         method: 'POST',
-//         body: JSON.stringify({ name, content }),
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       });
+    if (title && contents) {
+      const response = await fetch(`/api/post`, {
+        method: 'POST',
+        body: JSON.stringify({ title, contents }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
   
-//       if (response.ok) {
-//         document.location.replace('/post');
-//       } else {
-//         alert('Failed to create post');
-//       }
-//     }
-//   };
+      if (response.ok) {
+        document.location.replace('/homepage');
+      } else {
+        alert('Failed to create post');
+      }
+    }
+  };
   
-//   document
-//     .querySelector('.new-post-form')
-//     .addEventListener('submit', newFormHandler);
+  document
+    .querySelector('.new-post-form')
+    .addEventListener('submit', newFormHandler);
   
 
   
