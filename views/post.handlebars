@@ -1,18 +1,30 @@
 <div class="text-center">
   <h2>{{title}}</h2>
-  <p>Created by {{user.name}}  on {{format_date create_date}}</p>
+  <p>Post created by {{user.name}} on {{format_date create_date}}</p>
   <p>{{contents}}</p>
+  {{#if comments.length}}
+    {{#each comments as |comment|}}
+     <p>Comment create by {{comment.user.name}} on {{format_date comment.create_date}}</p>
+    <p>{{comment.comment}}</p>
+    <button type="submit" value="Submit">
+    Delete
+    </button>
+    {{/each}}
+  {{/if}}
+
   <form class="comment-form">
-      <label for="comment">
-        Comment:
-      </label>
-      <br />
-      <textarea id="comment" name="comment" rows="5" cols="30">
-        {{comment}}
-      </textarea>
-      <br />
-      <button type="submit" value="Submit">
-        Submit!
-      </button>
+    <label for="comment">
+    Create comment:
+    </label>
+    <br />
+    <textarea id="comment" name="comment" rows="5" cols="30">
+    {{comment}}
+    </textarea>
+    <br />
+    <button type="submit" value="Submit">
+    Submit!
+    </button>
   </form>
 </div>
+
+<script src="/js/comment.js" type="application/javascript"></script>
