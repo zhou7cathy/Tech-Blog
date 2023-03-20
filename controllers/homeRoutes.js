@@ -116,7 +116,24 @@ router.get('/create-post', withAuth, async (req, res) => {
 
     res.render('create-post', {
       ...user,
-      logged_in: true
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/update-post/:id', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const postData = await Post.findByPk(req.params.id);
+
+    const post = postData.get({ plain: true });
+
+    res.render('update-post', {
+      layout:"dashboard",
+      ...post,
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);

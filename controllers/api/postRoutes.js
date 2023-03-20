@@ -1,13 +1,15 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//Create post
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
       ...req.body,
       user_id: req.session.user_id,
     });
+    
 
     res.status(200).json(newPost);
   } catch (err) {
@@ -15,20 +17,44 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+//Delete post
 router.delete('/:id', withAuth, async (req, res) => {
   try {
+    await Comment.destroy({
+      where: {
+        post_id: req.params.id
+      } 
+    })
     const postData = await Post.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
-      },
+        user_id: req.session.user_id
+      }
     });
 
     if (!postData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+      res.status(404).json({ message: 'No post found with this id!' });
       return;
     }
 
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// update a post by its `id` value
+router.put('/:id', withAuth,async(req, res) => {
+  try {
+    const postData = await Post.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!postData) {
+      res.status(404).json({ message: 'No post with this id!' });
+      return;
+    }
     res.status(200).json(postData);
   } catch (err) {
     res.status(500).json(err);

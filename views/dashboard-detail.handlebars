@@ -4,7 +4,10 @@
     <h2>{{title}}</h2>
     <p>Created by {{user.name}} on {{format_date post.create_date}}</p>
     <p>{{contents}}</p>
-    <button type="submit" data-id="{{post.id}}">
+    <button type="button" class="update-post-btn" post-id="{{post.id}}">
+      Update
+    </button>
+    <button type="button" data-id="{{post.id}}">
       Delete
     </button>
     {{/each}}
