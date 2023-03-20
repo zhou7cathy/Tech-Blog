@@ -20,8 +20,36 @@ const newCommentHandler = async (event) => {
       }
     }
   };
+
+  const deleteCommentHandler = async (event) =>{
+    event.preventDefault();
+  
+    const commentId = event.target.getAttribute('data-id');
+    if (comment) {
+      const response = await fetch(`/api/comment/${commentId}`, {
+        method: 'Delete',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.ok) {
+        document.location.reload();
+      } else {
+        alert('Failed to delete comment');
+      }
+    }
+  }
   
   document
     .querySelector('.comment-form')
-    .addEventListener('submit', newCommentHandler);
+    .addEventListener('submit', newCommentHandler)
 
+  if(document.querySelector('.delete-comment-btn')){
+  
+    const deleteBtn =  document.querySelectorAll('.delete-comment-btn');
+
+    for (let i = 0; i < deleteBtn.length; i++){
+      deleteBtn[i].addEventListener('click', deleteCommentHandler);
+    }
+  }

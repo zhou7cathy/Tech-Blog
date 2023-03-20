@@ -4,11 +4,13 @@
   <p>{{contents}}</p>
   {{#if comments.length}}
     {{#each comments as |comment|}}
-     <p>Comment create by {{comment.user.name}} on {{format_date comment.create_date}}</p>
+    <p>Comment create by {{comment.user.name}} on {{format_date comment.create_date}}</p>
     <p>{{comment.comment}}</p>
-    <button type="submit" value="Submit">
-    Delete
+    {{#if (ifEquals comment.user.id ../currentUserId) }}
+    <button type="button" class="delete-comment-btn" data-id="{{comment.id}}">
+      Delete
     </button>
+    {{/if}}
     {{/each}}
   {{/if}}
 

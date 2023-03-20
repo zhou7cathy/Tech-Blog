@@ -47,6 +47,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+//Delete comment
 router.delete('/:id', withAuth, async(req, res) => {
   // delete one product by its `id` value
   try {
