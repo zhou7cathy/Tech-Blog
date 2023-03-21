@@ -1,7 +1,53 @@
 a {
     margin: 10px;
+    color:black;
+    font-family: cursive;
+}
+
+a:hover{
+    color:rgb(122, 78, 47)
+}
+
+header{
+    background-color: aliceblue;
+}
+
+body{
+    background-color: rgb(219, 210, 200);
+}
+
+p{
+    margin-left: 10px;
+}
+
+h1{
+    text-align: center;
+    margin: 10px;
+    font-family: fantasy;
+}
+
+h2,h3{
+    font-family: cursive;
+}
+
+.comment-container{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .create-post{
     margin: 50px 40%;
+}
+
+.wrap-it{
+    word-wrap: break-word;
+}
+
+@media screen and (max-width: 470px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
 }

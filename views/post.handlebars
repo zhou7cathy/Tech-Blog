@@ -2,20 +2,6 @@
   <h2>{{title}}</h2>
   <p>Post created by {{user.name}} on {{format_date create_date}}</p>
   <p>{{contents}}</p>
-  {{#if comments.length}}
-    {{#each comments as |comment|}}
-    <p>Comment create by {{comment.user.name}} on {{format_date comment.create_date}}</p>
-    <p>{{comment.comment}}</p>
-    {{#if (ifEquals comment.user.id ../currentUserId) }}
-    <button type="button" class="update-comment-btn" comment-id="{{comment.id}}">
-      Update
-    </button>
-    <button type="button" class="delete-comment-btn" data-id="{{comment.id}}">
-      Delete
-    </button>
-    {{/if}}
-    {{/each}}
-  {{/if}}
 
   <form class="comment-form">
     <label for="comment">
@@ -26,10 +12,30 @@
     {{comment}}
     </textarea>
     <br />
-    <button type="submit" value="Submit">
-    Submit!
+    <button type="submit" class="btn btn-primary" value="Submit">
+    Submit
     </button>
   </form>
+
+  <div class="comment-container" >
+    {{#if comments.length}}
+      {{#each comments as |comment|}}
+      <br>
+      <p>Comment create by {{comment.user.name}} on {{format_date comment.create_date}}</p>
+      <p style="width:50%">{{comment.comment}}</p>
+      <div>
+        {{#if (ifEquals comment.user.id ../currentUserId) }}
+        <button style="width: 100px" type="button" class="btn btn-primary update-comment-btn" comment-id="{{comment.id}}">
+          Update
+        </button>
+        <button style="width: 100px" type="button" class="btn btn-primary delete-comment-btn" data-id="{{comment.id}}">
+          Delete
+        </button>
+        {{/if}}
+      </div>
+      {{/each}}
+    {{/if}}
+  </div>
 </div>
 
 <script src="/js/comment.js" type="application/javascript"></script>

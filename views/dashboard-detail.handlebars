@@ -1,24 +1,25 @@
+<button class="create-post btn btn-primary" type="submit" value="Submit">
+  + Create Post
+</button>
+
 <div class="col-md-6 post-list">
   {{#if posts.length}}
     {{#each posts as |post|}}
-    <h2>{{title}}</h2>
-    <p>Created by {{user.name}} on {{format_date post.create_date}}</p>
-    <p>{{contents}}</p>
-    <button type="button" class="update-post-btn" post-id="{{post.id}}">
-      Update
-    </button>
-    <button type="button" data-id="{{post.id}}">
-      Delete
-    </button>
+    <div style="margin-bottom:20px;">
+      <h2>{{title}}</h2>
+      <p>Created by {{user.name}} on {{format_date post.create_date}}</p>
+      <p class="wrap-it">{{contents}}</p>
+      <button type="button" class="update-post-btn btn btn-primary" post-id="{{post.id}}">
+        Update
+      </button>
+      <button type="button" class="btn btn-primary" data-id="{{post.id}}">
+        Delete
+      </button>
+    </div>
     {{/each}}
   {{else}}
     <p>You don't have any post.</p>
   {{/if}}
 </div>
-
-<button class="create-post" type="submit" value="Submit">
-  Create Post
-</button>
-
 
 <script src="/js/dashboard.js"></script>
