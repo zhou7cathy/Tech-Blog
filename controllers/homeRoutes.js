@@ -140,6 +140,29 @@ router.get('/update-post/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get('/update-comment/:id', withAuth, async (req, res) => {
+  try {
+    const commentData = await Comment.findByPk(req.params.id,{
+      include: [
+        {
+          model: Post,
+        },
+      ],
+    }
+      );
+
+    const comment = commentData.get({ plain: true });
+
+    res.render('update-comment', {
+      layout:"dashboard",
+      ...comment,
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {

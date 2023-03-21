@@ -7,6 +7,9 @@
     <p>Comment create by {{comment.user.name}} on {{format_date comment.create_date}}</p>
     <p>{{comment.comment}}</p>
     {{#if (ifEquals comment.user.id ../currentUserId) }}
+    <button type="button" class="update-comment-btn" comment-id="{{comment.id}}">
+      Update
+    </button>
     <button type="button" class="delete-comment-btn" data-id="{{comment.id}}">
       Delete
     </button>

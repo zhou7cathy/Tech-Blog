@@ -53,3 +53,17 @@ const newCommentHandler = async (event) => {
       deleteBtn[i].addEventListener('click', deleteCommentHandler);
     }
   }
+
+const updateCommentButtonHandler = async (event) => {
+  const id = event.target.getAttribute('comment-id');
+
+  document.location.replace(`/update-comment/${id}`);
+};
+
+if(document.querySelector('.update-comment-btn')){
+  const updateBtn = document.querySelectorAll('.update-comment-btn');
+  
+  for (let i = 0; i < updateBtn.length; i++){
+      updateBtn[i].addEventListener('click', updateCommentButtonHandler);
+  }
+}
