@@ -1,22 +1,57 @@
 # Tech-Blog
+  ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
+## Table of Contents
+- [Description](#Description)
+- [Technologies](#Technologies)
+- [Setup](#Setup)
+- [Usage](#Usage)
+- [License](#License)
+- [Contributing](#Contributing)
+- [Tests](#Tests)
+- [Deployment](##Deployment)
 ## Description
 This application is created developers who want a CMS-style blog site so they can publish articles, blog posts,and their thoughts and opinions.
 
-## Installation
-connect-session-sequelize 
-dotenv <br />
-express <br />
-express-handlebars <br />
-express-session <br />
-handlebars <br />
-mysql2 <br />
-sequelize <br />
-bcrypt <br />
+## Technologies
+HTML <br />
+CSS <br />
+JavaScript <br />
+Bcrypt <br />
+Bonnect-session-sequelize <br />
+Dotenv <br />
+Express <br />
+Express-handlebars <br />
+Express-session <br />
+Handlebars <br />
+Mysql2 <br />
+Sequelize <br />
 
+## Setup
+1. To run this project locally, clone the repo and open it in the VScode.
+
+2. Create an '.env' file in the main directory path and include the following data:
+
+```
+DB_NAME='techblog_db'
+DB_USER='root'
+DB_PASSWORD=''
+
+```
+
+3. Run the following commend in your terminal:
+
+```
+$ npm install
+$ mysql -u root -p
+$ SOURCE db/schema.sql;
+$ USE techblog_db;
+$ npm run seed
+$ npm start
+```
 
 ## Usage
-Given a CMS-style blog site
+Given a CMS-style blog site.<br />
 -When I visit the site for the first time, I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in.<br />
 -When I click on the homepage option, I am taken to the homepage.<br />
 -When I click on any other links in the navigation, I am prompted to either sign up or sign in.<br />
@@ -41,7 +76,7 @@ The following image shows the web application's appearance and functionality:
 ![alt text](/assets/The-tech-blog-post.png)
 ![alt text](/assets/The-tech-blog-dashboard.png)
 ## License
-N/A
+Application is covered under MIT https://opensource.org/licenses/MIT
 
 ## Contributing
 N/A
@@ -49,5 +84,5 @@ N/A
 ## Tests
 N/A
 
-## Link to deployed application
-https://secret-escarpment-59821.herokuapp.com/
+## Deployment
+Link to deployed application: https://secret-escarpment-59821.herokuapp.com/
