@@ -36,6 +36,10 @@ Given a CMS-style blog site
 
 
 The following image shows the web application's appearance and functionality:
+![alt text](/assets/The-tech-blog-home.png)
+![alt text](/assets/The-tech-blog-login.png)
+![alt text](/assets/The-tech-blog-post.png)
+![alt text](/assets/The-tech-blog-dashboard.png)
 ## License
 N/A
 
@@ -43,6 +47,7 @@ N/A
 N/A
 
 ## Tests
-  N/A
+N/A
 
 ## Link to deployed application
+https://secret-escarpment-59821.herokuapp.com/
