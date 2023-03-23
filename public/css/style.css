@@ -41,10 +41,6 @@ h2,h3{
     margin: 50px 40%;
 }
 
-.wrap-it{
-    word-wrap: break-word;
-}
-
 @media screen and (max-width: 470px) {
     nav {
         display: flex;
