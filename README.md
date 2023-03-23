@@ -39,7 +39,7 @@ DB_PASSWORD=''
 
 ```
 
-3. Run the following commend in your terminal:
+3. Run the following commands in your terminal:
 
 ```
 $ npm install
